@@ -1,2 +1,2 @@
 FROM sp-boot-chat
-ENTRYPOINT ["java","-version"]
+ENTRYPOINT ["bash"]
