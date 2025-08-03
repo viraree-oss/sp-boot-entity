@@ -1,23 +1,7 @@
-version: 2.1
-
 orbs:
-  eb: circleci/aws-elastic-beanstalk@2.0.1
+  github-maven-deploy: github-maven-deploy/github-maven-deploy@1.3.0
 
-jobs:
-  build-and-test:
-    description: "Setup Spring boot application and run tests"
-    docker:
-      - image: cimg/openjdk:19.0.1
-    steps:
-      - checkout
-      - run:
-          name: Build
-          command: mvn -B -DskipTests clean package
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-
-      - run:
-          name: Test
-          command: mvn test
+workflows:
+  example-workflow:
+  jobs:
+    - github-maven-deploy/build-and-test
