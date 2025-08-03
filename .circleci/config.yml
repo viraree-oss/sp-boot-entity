@@ -28,7 +28,7 @@ jobs:
 
       - run: mvn clean install
       - store_test_results:
-          path: target/sp-entity.jar
+          path: target/RestControllerAdvice-1.0.jar
 
 
 # Orchestrate jobs using workflows
