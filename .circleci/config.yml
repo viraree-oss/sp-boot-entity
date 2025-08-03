@@ -1,18 +1,20 @@
-    version: 2.1 # Use CircleCI 2.1 or newer for features like workflows
+version: 2.1
+orbs:
+  maven: circleci/maven@2.1.0 # Use the latest version
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/openjdk:8.0
+    steps:
+      - checkout
+      - maven/with-cache:
+          steps:
+            - run: mvn clean install
+      - store_test_results:
+          path: target/surefire-reports
+
+workflows:
+  build-workflow:
     jobs:
-      build:
-        docker:
-          - image: cimg/openjdk:8.0 # Or appropriate OpenJDK version for your project
-        steps:
-          - checkout # Checkout the code from your version control system (e.g., GitHub)
-          - restore_cache:
-              keys:
-                - maven-{{ checksum "pom.xml" }}
-                - maven-
-          - run: ./mvnw clean install # Execute Maven clean and install to build and run tests
-          - save_cache:
-              paths:
-                - ~/.m2
-              key: maven-{{ checksum "pom.xml" }}
-          - store_test_results:
-              path: target/surefire-reports # Store test results for CircleCI's UI
+      - build-and-test
