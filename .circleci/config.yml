@@ -35,10 +35,10 @@ jobs:
             echo "my artifact files in a dir" > /tmp/artifacts/art-2.txt;
       - store_test_results:
           path: target
-          destination: RestControllerAdvice-1.0.jar
+          #destination: RestControllerAdvice-1.0.jar
       - store_test_results:
           path: /tmp/artifacts
-          destination: art-2.txt
+          #destination: art-2.txt
 
 
 # Orchestrate jobs using workflows
