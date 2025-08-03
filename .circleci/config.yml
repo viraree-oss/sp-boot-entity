@@ -27,6 +27,13 @@ jobs:
       - checkout
 
       - run: mvn clean install
+      - run:
+          working_directory: /tmp
+          name: Creating Dummy Artifacts
+          command: |
+            echo "my artifact file" > /tmp/art-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/art-2;
       - store_test_results:
           path: target/RestControllerAdvice-1.0.jar
 
