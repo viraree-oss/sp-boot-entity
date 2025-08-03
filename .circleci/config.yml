@@ -6,7 +6,6 @@ version: 2.1
 # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
   build:
-    working_directory: ./target
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/executor-intro/ & https://circleci.com/docs/configuration-reference/#executor-job
     docker:
@@ -37,7 +36,7 @@ jobs:
       - store_test_results:
           path: target/RestControllerAdvice-1.0.jar
       - store_test_results:
-          path: ./target/artifacts/art-2
+          path: ./target/artifacts/art-2.txt
 
 
 # Orchestrate jobs using workflows
