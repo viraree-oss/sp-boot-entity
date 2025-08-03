@@ -28,7 +28,7 @@ jobs:
 
       - run: mvn clean install
       - store_test_results:
-          path: target/
+          path: target/sp-boot-entity.jar
 
 
 # Orchestrate jobs using workflows
