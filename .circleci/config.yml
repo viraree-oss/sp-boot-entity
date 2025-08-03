@@ -28,7 +28,7 @@ jobs:
 
       - run: mvn clean install
       - store_test_results:
-          path: target/*.jar
+          path: target/sp-entity.jar
 
 
 # Orchestrate jobs using workflows
