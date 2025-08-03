@@ -1,6 +1,6 @@
 FROM openjdk:8 as builder
 WORKDIR /home/app
-ADD sp-boot /home/app/sp-boot
+COPY . /home/app/sp-boot
 RUN cd sp-boot && ./mvnw -Dmaven.test.skip=true clean package
 
 ARG JAR_FILE=target/*.jar
