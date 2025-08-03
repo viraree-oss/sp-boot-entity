@@ -12,8 +12,7 @@ jobs:
           steps:
             - run: mvn clean install
       - store_test_results:
-          path: target/surefire-reports
-
+          path: target/
 workflows:
   build-workflow:
     jobs:
