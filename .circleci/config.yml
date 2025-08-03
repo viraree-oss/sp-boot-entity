@@ -30,13 +30,13 @@ jobs:
       - run:
           name: Creating Dummy Artifacts
           command: 
-            echo "my artifact file" > ./target/art-1.txt;
-            mkdir ./target/artifacts;
-            echo "my artifact files in a dir" > ./target/artifacts/art-2.txt;
+            echo "my artifact file" > /tmp/art-1.txt;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/art-2.txt;
       - store_test_results:
           path: target/RestControllerAdvice-1.0.jar
       - store_test_results:
-          path: ./target/artifacts/art-2.txt
+          path: /tmp/artifacts/art-2.txt
 
 
 # Orchestrate jobs using workflows
